@@ -33,5 +33,5 @@ To run this extension, follow these steps:
    https://www.linkedin.com/mynetwork/grow/
 
 4. **Finally Connect with all button**:
-  ```bash
-  click on "connect with all" , your connections request will start auto send.
+   ```bash
+   click on "connect with all" , your connections request will start auto send.

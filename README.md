@@ -1,8 +1,8 @@
-## project 
+## LinkedIn AutoConnect Extension
 
-# Build a Chrome Extension with React, to automate connection requests on LinkedIn.
+### Build a Chrome Extension with React, to automate connection requests on LinkedIn.
 
-# Project Overview:
+### Project Overview:
 1. Target URL: The extension should work on the following LinkedIn URL:
 https://www.linkedin.com/mynetwork/grow/
 2. UI Requirement: Add a button that floats on the page with the text: “Connect
@@ -13,7 +13,7 @@ the page.
 For example, if there are 50 suggested profiles with a Connect button, 50
 connection requests should be sent.
 
-# Additional Requirements:
+### Additional Requirements:
 1. Include a delay between each connection request to prevent LinkedIn from
 blocking the account.
 2. The delay can be around 1-3 seconds (you can adjust based on your

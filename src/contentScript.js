@@ -2,61 +2,60 @@ const addConnectButton = () => {
   const button = document.createElement("button");
   button.innerText = "Connect with All";
   button.style.position = "fixed";
-  button.style.top = "15px"; // Adjusted for better visibility
+  button.style.top = "15px"; 
   button.style.right = "20px";
   button.style.padding = "10px";
   button.style.backgroundColor = "#0073b1";
   button.style.color = "white";
   button.style.border = "none";
   button.style.cursor = "pointer";
-  button.style.zIndex = "9999"; // Ensure it's above other elements
-  button.style.fontSize = "18px"; // Responsive font size
-  button.style.borderRadius = "5px"; // Rounded corners
-  button.style.transition = "background-color 0.3s, transform 0.2s"; // Smooth transitions
+  button.style.zIndex = "9999"; 
+  button.style.fontSize = "18px"; 
+  button.style.borderRadius = "5px"; 
+  button.style.transition = "background-color 0.3s, transform 0.2s";
 
   button.onmouseover = () => {
-    button.style.backgroundColor = "#005582"; // Darker blue on hover
-    button.style.transform = "scale(1.05)"; // Slightly increase size
+    button.style.backgroundColor = "#005582"; 
+    button.style.transform = "scale(1.05)"; 
   };
 
   button.onmouseout = () => {
-    button.style.backgroundColor = "#0073b1"; // Original color
-    button.style.transform = "scale(1)"; // Return to original size
+    button.style.backgroundColor = "#0073b1";
+    button.style.transform = "scale(1)"; 
   };
 
   button.onmousedown = () => {
-    button.style.backgroundColor = "#003f5c"; // Even darker blue when clicked
-    button.style.transform = "scale(0.95)"; // Slightly decrease size
+    button.style.backgroundColor = "#003f5c"; 
+    button.style.transform = "scale(0.95)"; 
   };
 
   button.onmouseup = () => {
-    button.style.backgroundColor = "#005582"; // Change back to hover color
+    button.style.backgroundColor = "#005582"; 
   };
 
   
 
   document.body.appendChild(button);
 
-  let connecting = false; // To prevent multiple clicks
+  let connecting = false; 
   const updateButtonPosition = () => {
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
 
-    // Adjust button size based on screen size
-    button.style.padding = screenWidth < 600 ? "5px" : "10px"; // Smaller padding on smaller screens
-    button.style.fontSize = screenWidth < 600 ? "14px" : "16px"; // Smaller font size on smaller screens
+    
+    button.style.padding = screenWidth < 600 ? "5px" : "10px"; 
+    button.style.fontSize = screenWidth < 600 ? "14px" : "16px"; 
   };
   button.addEventListener("click", () => {
-    if (connecting) return; // Prevent multiple clicks
+    if (connecting) return; 
     connecting = true;
     connectAll();
   });
 
-  // Event listener for window resize
+ 
   window.addEventListener("resize", updateButtonPosition);
-  updateButtonPosition(); // Call initially to set the right size
-
-  // Function to connect with all visible buttons
+  updateButtonPosition(); 
+  
   const connectAll = async () => {
     while (true) {
       const connectButtons = Array.from(
@@ -67,31 +66,31 @@ const addConnectButton = () => {
           "Connect"
       );
 
-      // Log how many connect buttons are found
+      
       console.log(`Found ${connectButtons.length} connect buttons.`);
 
       if (connectButtons.length === 0) {
         console.log("No more connect buttons found. Stopping.");
-        break; // Exit if no buttons are found
+        break; 
       }
 
       for (let i = 0; i < connectButtons.length; i++) {
-        connectButtons[i].click(); // Trigger click on connect button
+        connectButtons[i].click(); 
         await new Promise((res) =>
           setTimeout(res, Math.random() * 2000 + 1000)
-        ); // Random delay
+        ); 
       }
 
-      // Scroll to trigger loading more buttons (if applicable)
-      window.scrollBy(0, 100); // Adjust the scroll amount as necessary
+      
+      window.scrollBy(0, 100); 
 
-      // Wait for a short duration to allow new buttons to load
+      
       await new Promise((res) => setTimeout(res, 1000));
     }
-    connecting = false; // Reset the connecting flag
+    connecting = false; 
   };
 
-  // Observe mutations for new connect buttons
+  
   const observeConnectButtons = () => {
     const observer = new MutationObserver(() => {
       const connectButtons = Array.from(

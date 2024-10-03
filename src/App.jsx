@@ -1,6 +1,5 @@
 import './App.css'
-import linkedinIcon from './assets/linkedin-icon.svg'; // Use an SVG icon for LinkedIn logo
-
+import linkedinIcon from './assets/linkedin-icon.svg'; 
 function App() {
   return (
     <div className="popup-container">
